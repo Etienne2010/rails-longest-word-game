@@ -34,6 +34,9 @@ class GamesController < ApplicationController
     input.each_char do |grid_char|
       correct = correct && (input.downcase.scan(/#{grid_char.downcase}/).count <= word.downcase.scan(/#{grid_char.downcase}/).count)
     end
+    word.each_char do |grid_char|
+      correct = correct && (input.downcase.scan(/#{grid_char.downcase}/).count <= word.downcase.scan(/#{grid_char.downcase}/).count)
+    end
 
     after_score(correct, input)
   end
