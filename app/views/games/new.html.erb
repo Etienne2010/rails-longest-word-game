@@ -1,0 +1,16 @@
+<h1>Games#new</h1>
+<p>Find me in app/views/games/new.html.erb</p>
+
+<ul class="list-inline">
+  <% @letters.each do |l| %>
+  <li class="list-inline-item"><%=l%></li>
+  <% end %>
+</ul>
+
+<form action='/score' method='POST'>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="input">Enter your word</label>
+  <input class="form-control" type="text" name="input">
+  <input type="hidden" name="grid" value=<%=@word%>>
+  <input type="submit" value="Suggest your word" class="btn btn-primary">
+</form>
